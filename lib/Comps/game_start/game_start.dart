@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'dart:math';
 
 class GameStart extends StatefulWidget {
   const GameStart({Key? key}) : super(key: key);
-  //initstate kyu nai aa rha?
 
   @override
   _GameStartState createState() => _GameStartState();
 }
 
 class _GameStartState extends State<GameStart> {
-  late Timer _timer;
+  int num = 0;
   int _start = 10;
 
   @override
   void initState() {
     super.initState();
     startTimer();
+    num += generateRandom(5);
   }
 
   void startTimer() {
     const oneSec = const Duration(seconds: 1);
-    _timer = Timer.periodic(
+    Timer _timer = Timer.periodic(
       oneSec,
       (Timer timer) {
         if (_start == 0) {
@@ -35,6 +36,14 @@ class _GameStartState extends State<GameStart> {
         }
       },
     );
+  }
+
+  int generateRandom(int lvl) {
+    int temp = 0;
+    for (int i = 1; i <= lvl; i++) {
+      temp = 10 * temp + Random().nextInt(9);
+    }
+    return temp;
   }
 
   @override
@@ -63,6 +72,7 @@ class _GameStartState extends State<GameStart> {
               height: 100,
               width: 300,
               color: Colors.grey,
+              child: Center(child: Text(num.toString())),
             ),
           )
         ],
