@@ -9,9 +9,24 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackGround,
-      body: Center(
-        child: Text('Hello World'),
+      backgroundColor: Color(0xff072540),
+      body: Stack(
+        children: const [
+          Align(
+            alignment: Alignment(0, -0.5),
+            child: Text(
+              'Memorize!!',
+              style: TextStyle(fontSize: 50, color: Colors.white),
+            ),
+          ),
+          Align(
+            alignment: Alignment(0, 0.5),
+            child: Text(
+              'Click Anywhere to Start',
+              style: TextStyle(fontSize: 24, color: Colors.white),
+            ),
+          )
+        ],
       ),
     );
   }
