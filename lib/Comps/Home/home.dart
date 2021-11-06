@@ -7,25 +7,30 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff072540),
-      body: Stack(
-        children: const [
-          Align(
-            alignment: Alignment(0, -0.5),
-            child: Text(
-              'Memorize!!',
-              style: TextStyle(fontSize: 50, color: Colors.white),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/gamestart');
+      },
+      child: Scaffold(
+        backgroundColor: Color(0xff072540),
+        body: Stack(
+          children: const [
+            Align(
+              alignment: Alignment(0, -0.5),
+              child: Text(
+                'Memorize!!',
+                style: TextStyle(fontSize: 50, color: Colors.white),
+              ),
             ),
-          ),
-          Align(
-            alignment: Alignment(0, 0.5),
-            child: Text(
-              'Click Anywhere to Start',
-              style: TextStyle(fontSize: 24, color: Colors.white),
-            ),
-          )
-        ],
+            Align(
+              alignment: Alignment(0, 0.5),
+              child: Text(
+                'Click Anywhere to Start',
+                style: TextStyle(fontSize: 24, color: Colors.white),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
