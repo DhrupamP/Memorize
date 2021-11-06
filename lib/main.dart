@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:memorizegame/Comps/game_start/game_start.dart';
 import 'Comps/Home/home.dart';
 
 void main() {
@@ -14,8 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(backgroundColor: Color(0xff072540)),
-      home: Home(),
-    );
+        theme: ThemeData(backgroundColor: Color(0xff072540)),
+        home: Home(),
+        routes: {
+          '/gamestart': (context) => const GameStart(),
+        });
   }
 }
