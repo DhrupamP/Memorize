@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:memorizegame/Styles/constants.dart';
 
 int _start = 5;
 
@@ -43,7 +44,7 @@ class _GameEndState extends State<GameEnd> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xff072540),
+      backgroundColor: kBackGround,
       body: Stack(
         children: [
           Align(
@@ -51,17 +52,28 @@ class _GameEndState extends State<GameEnd> {
             child: Container(
               height: 200,
               width: 200,
-              decoration: BoxDecoration(color: Colors.grey),
+              decoration: BoxDecoration(
+                color: kLightBlue,
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black87,
+                    offset: Offset(2, 2),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
               child: Center(
                 child: Text(
                   _start.toString(),
-                  style: const TextStyle(fontSize: 50, color: Colors.red),
+                  style: const TextStyle(fontSize: 65, color: Colors.white),
                 ),
               ),
             ),
           ),
           Align(
-            alignment: Alignment(0, 0.1),
+            alignment: Alignment(0, 0.05),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 35.0),
               child: TextField(
@@ -70,10 +82,10 @@ class _GameEndState extends State<GameEnd> {
                 style: TextStyle(fontSize: 50, color: Colors.white),
                 decoration: InputDecoration(
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pink),
+                    borderSide: BorderSide(color: kPink),
                   ),
                   focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pink),
+                    borderSide: BorderSide(color: kPink),
                   ),
                 ),
               ),

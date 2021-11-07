@@ -1,6 +1,10 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
+
+import 'package:memorizegame/Styles/constants.dart';
 
 class GameStart extends StatefulWidget {
   const GameStart({Key? key}) : super(key: key);
@@ -50,7 +54,7 @@ class _GameStartState extends State<GameStart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff072540),
+      backgroundColor: kBackGround,
       body: Stack(
         children: [
           Align(
@@ -58,11 +62,22 @@ class _GameStartState extends State<GameStart> {
             child: Container(
               height: 200,
               width: 200,
-              decoration: BoxDecoration(color: Colors.grey),
+              decoration: BoxDecoration(
+                color: kLightBlue,
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black87,
+                    offset: Offset(2, 2),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
               child: Center(
                 child: Text(
                   _start.toString(),
-                  style: const TextStyle(fontSize: 50, color: Colors.red),
+                  style: const TextStyle(fontSize: 65, color: Colors.white),
                 ),
               ),
             ),
@@ -72,8 +87,24 @@ class _GameStartState extends State<GameStart> {
             child: Container(
               height: 100,
               width: 300,
-              color: Colors.grey,
-              child: Center(child: Text(num.toString())),
+              decoration: BoxDecoration(
+                color: kLightBlue,
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black87,
+                    offset: Offset(1, 1),
+                    blurRadius: 5,
+                    spreadRadius: 1,
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Text(
+                  num.toString(),
+                  style: TextStyle(fontSize: 65, color: Colors.white),
+                ),
+              ),
             ),
           )
         ],
