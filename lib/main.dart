@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:memorizegame/Comps/game_end/game_end.dart';
 import 'package:memorizegame/Comps/game_start/game_start.dart';
 import 'Comps/Home/home.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         home: Home(),
         routes: {
           '/gamestart': (context) => const GameStart(),
+          '/gameend': (context) => const GameEnd(),
         });
   }
 }

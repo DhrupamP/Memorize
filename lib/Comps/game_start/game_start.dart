@@ -11,7 +11,7 @@ class GameStart extends StatefulWidget {
 
 class _GameStartState extends State<GameStart> {
   int num = 0;
-  int _start = 10;
+  int _start = 5;
 
   @override
   void initState() {
@@ -28,6 +28,7 @@ class _GameStartState extends State<GameStart> {
         if (_start == 0) {
           setState(() {
             timer.cancel();
+            Navigator.pushNamed(context, '/gameend');
           });
         } else {
           setState(() {
