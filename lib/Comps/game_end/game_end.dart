@@ -24,7 +24,12 @@ class _GameEndState extends State<GameEnd> {
   void compare(String data) {
     if (data == globals.qn.toString()) {
       globals.lvl++;
+      if (globals.lvl > globals.bestlvl) {
+        globals.bestlvl = globals.lvl;
+      }
       Navigator.popAndPushNamed(context, '/gamestart');
+    } else {
+      Navigator.popAndPushNamed(context, '/result');
     }
   }
 

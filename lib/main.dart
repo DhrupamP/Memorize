@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:memorizegame/Comps/game_end/game_end.dart';
 import 'package:memorizegame/Comps/game_start/game_start.dart';
+import 'package:memorizegame/Comps/result/result_page.dart';
 import 'Comps/Home/home.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/gamestart': (context) => const GameStart(),
           '/gameend': (context) => const GameEnd(),
+          '/result': (context) => const ResultPage(),
         });
   }
 }
