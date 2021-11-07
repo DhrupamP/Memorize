@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:memorizegame/Styles/constants.dart';
+import 'package:memorizegame/globals.dart' as globals;
 
 class GameStart extends StatefulWidget {
   const GameStart({Key? key}) : super(key: key);
@@ -16,12 +17,12 @@ class GameStart extends StatefulWidget {
 class _GameStartState extends State<GameStart> {
   int num = 0;
   int _start = 5;
-
   @override
   void initState() {
     super.initState();
     startTimer();
-    num += generateRandom(5);
+    num += generateRandom(globals.lvl);
+    globals.qn = num;
   }
 
   void startTimer() {
@@ -32,7 +33,7 @@ class _GameStartState extends State<GameStart> {
         if (_start == 0) {
           setState(() {
             timer.cancel();
-            Navigator.pushNamed(context, '/gameend');
+            Navigator.popAndPushNamed(context, '/gameend');
           });
         } else {
           setState(() {

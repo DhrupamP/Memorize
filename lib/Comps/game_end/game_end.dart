@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:memorizegame/Styles/constants.dart';
+import 'package:memorizegame/globals.dart' as globals;
 
 int _start = 5;
 
@@ -21,6 +21,13 @@ class _GameEndState extends State<GameEnd> {
     startTimer();
   }
 
+  void compare(String data) {
+    if (data == globals.qn.toString()) {
+      globals.lvl++;
+      Navigator.popAndPushNamed(context, '/gamestart');
+    }
+  }
+
   void startTimer() {
     const oneSec = const Duration(seconds: 1);
     Timer _timer = Timer.periodic(
@@ -28,7 +35,9 @@ class _GameEndState extends State<GameEnd> {
       (Timer timer) {
         if (_start == 0) {
           setState(() {
+            _start = 5;
             timer.cancel();
+            compare(myController.text);
             // Navigator.pushNamed(context, '/gameend');
           });
         } else {
@@ -38,6 +47,22 @@ class _GameEndState extends State<GameEnd> {
         }
       },
     );
+  }
+
+  final myController = TextEditingController();
+  void KeyPressHandler(event) {
+    print(event);
+    var data = event.data;
+    if (data.code == 'ENTER') {
+      compare(myController.text);
+    }
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
   }
 
   @override
@@ -76,16 +101,21 @@ class _GameEndState extends State<GameEnd> {
             alignment: Alignment(0, 0.05),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 35.0),
-              child: TextField(
-                keyboardType: TextInputType.number,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 50, color: Colors.white),
-                decoration: InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: kPink),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: kPink),
+              child: RawKeyboardListener(
+                focusNode: FocusNode(),
+                onKey: KeyPressHandler,
+                child: TextField(
+                  keyboardType: TextInputType.number,
+                  controller: myController,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 50, color: Colors.white),
+                  decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: kPink),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: kPink),
+                    ),
                   ),
                 ),
               ),
