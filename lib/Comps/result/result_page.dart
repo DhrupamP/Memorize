@@ -47,13 +47,14 @@ class _ResultPageState extends State<ResultPage> {
               ),
             ),
             Align(
-              alignment: Alignment(0, 0.4),
+              alignment: Alignment(0, 0.6),
               child: Container(
                 child: Text(
-                  'Tap anywhere to restart!',
+                  'Tap anywhere\n\nto restart!',
+                  textAlign: TextAlign.center,
                   style: GoogleFonts.pressStart2p(
                     fontSize: 20,
-                    color: Colors.white,
+                    color: kPink,
                     letterSpacing: -1,
                   ),
                 ),

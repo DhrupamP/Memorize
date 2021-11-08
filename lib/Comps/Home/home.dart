@@ -29,9 +29,12 @@ class Home extends StatelessWidget {
             Align(
               alignment: Alignment(0, 0.5),
               child: BlinkText(
-                'Click Anywhere to Start',
-                style:
-                    GoogleFonts.pressStart2p(fontSize: 20, color: Colors.white),
+                'Click Anywhere\n\nto Start',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.pressStart2p(
+                  fontSize: 20,
+                  color: kPink,
+                ),
               ),
             )
           ],

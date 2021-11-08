@@ -31,7 +31,7 @@ class _GameEndState extends State<GameEnd> {
         globals.bestlvl = globals.lvl;
       }
       isRight = true;
-      botText = 'Right Answer! \n Click for next level';
+      botText = 'Right Answer!\n\nClick for next level';
       // Navigator.popAndPushNamed(context, '/gamestart');
     } else {
       Navigator.popAndPushNamed(context, '/result');
@@ -112,7 +112,7 @@ class _GameEndState extends State<GameEnd> {
                   child: Text(
                     _start.toString(),
                     style: GoogleFonts.pressStart2p(
-                        fontSize: 30, color: Colors.red),
+                        fontSize: 60, color: Colors.red),
                   ),
                 ),
               ),
@@ -146,8 +146,11 @@ class _GameEndState extends State<GameEnd> {
               alignment: Alignment(0, 0.6),
               child: Text(
                 botText,
-                style:
-                    GoogleFonts.pressStart2p(fontSize: 20, color: Colors.white),
+                textAlign: TextAlign.center,
+                style: GoogleFonts.pressStart2p(
+                  fontSize: 20,
+                  color: kPink,
+                ),
               ),
             )
           ],

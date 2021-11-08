@@ -87,7 +87,7 @@ class _GameStartState extends State<GameStart> {
                   child: Text(
                     _start.toString(),
                     style: GoogleFonts.pressStart2p(
-                        fontSize: 30, color: Colors.red),
+                        fontSize: 60, color: Colors.red),
                   ),
                 ),
               ),
