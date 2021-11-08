@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:memorizegame/Styles/constants.dart';
+import 'package:blinking_text/blinking_text.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -15,19 +17,21 @@ class Home extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Color(0xff072540),
         body: Stack(
-          children: const [
+          children: [
             Align(
               alignment: Alignment(0, -0.5),
               child: Text(
                 'Memorize!!',
-                style: TextStyle(fontSize: 50, color: Colors.white),
+                style:
+                    GoogleFonts.pressStart2p(fontSize: 30, color: Colors.white),
               ),
             ),
             Align(
               alignment: Alignment(0, 0.5),
-              child: Text(
+              child: BlinkText(
                 'Click Anywhere to Start',
-                style: TextStyle(fontSize: 24, color: Colors.white),
+                style:
+                    GoogleFonts.pressStart2p(fontSize: 20, color: Colors.white),
               ),
             )
           ],

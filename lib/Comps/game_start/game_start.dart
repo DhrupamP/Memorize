@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 import 'dart:math';
 
@@ -53,6 +54,11 @@ class _GameStartState extends State<GameStart> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackGround,
@@ -76,9 +82,13 @@ class _GameStartState extends State<GameStart> {
                 ],
               ),
               child: Center(
-                child: Text(
-                  _start.toString(),
-                  style: const TextStyle(fontSize: 65, color: Colors.white),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    _start.toString(),
+                    style: GoogleFonts.pressStart2p(
+                        fontSize: 30, color: Colors.red),
+                  ),
                 ),
               ),
             ),
@@ -103,7 +113,8 @@ class _GameStartState extends State<GameStart> {
               child: Center(
                 child: Text(
                   num.toString(),
-                  style: TextStyle(fontSize: 65, color: Colors.white),
+                  style: GoogleFonts.pressStart2p(
+                      fontSize: 30, color: Colors.white),
                 ),
               ),
             ),

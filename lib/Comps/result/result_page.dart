@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:memorizegame/Styles/constants.dart';
 import 'package:memorizegame/globals.dart' as globals;
 
@@ -16,7 +17,7 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        globals.lvl = 0;
+        globals.lvl = 1;
         Navigator.popAndPushNamed(context, '/gamestart');
       },
       child: Scaffold(
@@ -24,21 +25,38 @@ class _ResultPageState extends State<ResultPage> {
         body: Stack(
           children: [
             Align(
-              alignment: Alignment(0.5, -0.4),
+              alignment: Alignment(0.0, -0.2),
               child: Container(
-                child: Text('highest level \n $bestlvl'),
+                child: Text(
+                  'Highest level \n \n$bestlvl',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.pressStart2p(
+                      fontSize: 20, color: Colors.white),
+                ),
               ),
             ),
             Align(
-              alignment: Alignment(-0.5, -0.4),
+              alignment: Alignment(-0, -0.6),
               child: Container(
-                child: Text('current level \n $currlvl'),
+                child: Text(
+                  'Current level \n \n$currlvl',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.pressStart2p(
+                      fontSize: 20, color: Colors.white),
+                ),
               ),
             ),
             Align(
               alignment: Alignment(0, 0.4),
               child: Container(
-                child: Text('Tap anywhere to restart!'),
+                child: Text(
+                  'Tap anywhere to restart!',
+                  style: GoogleFonts.pressStart2p(
+                    fontSize: 20,
+                    color: Colors.white,
+                    letterSpacing: -1,
+                  ),
+                ),
               ),
             ),
           ],
