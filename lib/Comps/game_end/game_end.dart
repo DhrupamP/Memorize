@@ -4,6 +4,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:memorizegame/Styles/constants.dart';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+
 import 'package:memorizegame/globals.dart' as globals;
 
 int _start = 5;
@@ -76,6 +78,33 @@ class _GameEndState extends State<GameEnd> {
     super.dispose();
   }
 
+  final slider = CircularCountDownTimer(
+    duration: 5,
+    initialDuration: 0,
+    controller: CountDownController(),
+    width: 210,
+    height: 210,
+    ringColor: kLightBlue,
+    ringGradient: null,
+    fillColor: kBlue,
+    fillGradient: null,
+    backgroundColor: kLightBlue,
+    backgroundGradient: null,
+    strokeWidth: 20.0,
+    strokeCap: StrokeCap.round,
+    textFormat: CountdownTextFormat.S,
+    isReverse: false,
+    isReverseAnimation: false,
+    isTimerTextShown: true,
+    autoStart: true,
+    onStart: () {
+      print('Countdown Started');
+    },
+    onComplete: () {
+      print('Countdown Ended');
+    },
+  );
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -93,26 +122,25 @@ class _GameEndState extends State<GameEnd> {
           children: [
             Align(
               alignment: Alignment(0, -0.6),
+              child: slider,
+            ),
+            Align(
+              alignment: Alignment(0, -0.57),
               child: Container(
-                height: 200,
-                width: 200,
+                height: 170,
+                width: 170,
                 decoration: BoxDecoration(
                   color: kLightBlue,
-                  borderRadius: BorderRadius.circular(8),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black87,
-                      offset: Offset(2, 2),
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                    ),
-                  ],
+                  borderRadius: BorderRadius.circular(85),
                 ),
                 child: Center(
-                  child: Text(
-                    _start.toString(),
-                    style: GoogleFonts.pressStart2p(
-                        fontSize: 60, color: Colors.red),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      _start.toString(),
+                      style: GoogleFonts.pressStart2p(
+                          fontSize: 60, color: Colors.red),
+                    ),
                   ),
                 ),
               ),

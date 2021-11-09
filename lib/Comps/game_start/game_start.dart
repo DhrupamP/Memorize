@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 import 'dart:math';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 
 import 'package:memorizegame/Styles/constants.dart';
 import 'package:memorizegame/globals.dart' as globals;
@@ -58,6 +59,33 @@ class _GameStartState extends State<GameStart> {
     super.dispose();
   }
 
+  final slider = CircularCountDownTimer(
+    duration: 5,
+    initialDuration: 0,
+    controller: CountDownController(),
+    width: 210,
+    height: 210,
+    ringColor: kLightBlue,
+    ringGradient: null,
+    fillColor: kBlue,
+    fillGradient: null,
+    backgroundColor: kLightBlue,
+    backgroundGradient: null,
+    strokeWidth: 20.0,
+    strokeCap: StrokeCap.round,
+    textFormat: CountdownTextFormat.S,
+    isReverse: false,
+    isReverseAnimation: false,
+    isTimerTextShown: true,
+    autoStart: true,
+    onStart: () {
+      print('Countdown Started');
+    },
+    onComplete: () {
+      print('Countdown Ended');
+    },
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,20 +94,16 @@ class _GameStartState extends State<GameStart> {
         children: [
           Align(
             alignment: Alignment(0, -0.6),
+            child: slider,
+          ),
+          Align(
+            alignment: Alignment(0, -0.57),
             child: Container(
-              height: 200,
-              width: 200,
+              height: 170,
+              width: 170,
               decoration: BoxDecoration(
                 color: kLightBlue,
-                borderRadius: BorderRadius.circular(100),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black87,
-                    offset: Offset(2, 2),
-                    blurRadius: 10,
-                    spreadRadius: 2,
-                  ),
-                ],
+                borderRadius: BorderRadius.circular(85),
               ),
               child: Center(
                 child: Padding(
