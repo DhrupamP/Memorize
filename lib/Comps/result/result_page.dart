@@ -1,3 +1,4 @@
+import 'package:blinking_text/blinking_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:memorizegame/Styles/constants.dart';
@@ -25,7 +26,20 @@ class _ResultPageState extends State<ResultPage> {
         body: Stack(
           children: [
             Align(
-              alignment: Alignment(0.0, -0.2),
+              alignment: Alignment(0.0, -0.7),
+              child: Container(
+                child: Text(
+                  'GAME OVER!',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.pressStart2p(
+                    fontSize: 50,
+                    color: kPink,
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment(0.0, 0.2),
               child: Container(
                 child: Text(
                   'Highest level \n \n$bestlvl',
@@ -36,7 +50,7 @@ class _ResultPageState extends State<ResultPage> {
               ),
             ),
             Align(
-              alignment: Alignment(-0, -0.6),
+              alignment: Alignment(-0, -0.2),
               child: Container(
                 child: Text(
                   'Current level \n \n$currlvl',
@@ -47,9 +61,9 @@ class _ResultPageState extends State<ResultPage> {
               ),
             ),
             Align(
-              alignment: Alignment(0, 0.6),
+              alignment: Alignment(0, 0.8),
               child: Container(
-                child: Text(
+                child: BlinkText(
                   'Tap anywhere\n\nto restart!',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.pressStart2p(

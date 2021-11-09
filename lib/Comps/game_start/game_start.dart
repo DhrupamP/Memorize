@@ -71,7 +71,7 @@ class _GameStartState extends State<GameStart> {
               width: 200,
               decoration: BoxDecoration(
                 color: kLightBlue,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(100),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black87,
